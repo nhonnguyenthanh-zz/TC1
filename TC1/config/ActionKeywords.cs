@@ -14,7 +14,7 @@ namespace TC1.config
     class ActionKeywords
     {
         public static IWebDriver driver;
-        public static int wait = 1000;
+        public static int wait = 2000;
         public static void openBrowser(String object_, String browser)
         {
 
@@ -124,7 +124,7 @@ namespace TC1.config
         {
 		try{
                 Log.info("Wait for 5 seconds");
-                Thread.Sleep(wait);
+                Thread.Sleep(5000);
 
             }catch(Exception ex){
                 Log.error("Not able to Wait --- " + ex.Message);
