@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using log4net;
-using log4net.Config;
+using System.Reflection;
 
 namespace TC1.utility
 {
     class Log
     {
         //Initialize Log4j logs
-        private static ILog _Log = LogManager.GetLogger(typeof(Log).Name);
+        private static ILog _Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
 	 
 		// This is to print log for the beginning of the test case, as we usually run so many test cases as a test suite

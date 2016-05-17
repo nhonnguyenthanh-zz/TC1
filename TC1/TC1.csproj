@@ -114,7 +114,10 @@
     <Compile Include="utility\Log.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="config\Environment.config" />
+    <None Include="App.config" />
+    <None Include="config\log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="config\ObjectRepository.xlsx" />
     <None Include="dataEngine\DataEngine.xlsx" />
     <None Include="packages.config" />
@@ -150,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LogFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

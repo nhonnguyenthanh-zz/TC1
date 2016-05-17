@@ -34,8 +34,7 @@ namespace TC1.executionEngine
             actionKeywords = new ActionKeywords();
             //method = typeof(ActionKeywords).GetMethods();
             type = actionKeywords.GetType();
-            //BasicConfigurator.Configure();
-            XmlConfigurator.Configure(new System.IO.FileInfo(Constants.Path_FileLog));
+            XmlConfigurator.Configure();
         }
 
 
