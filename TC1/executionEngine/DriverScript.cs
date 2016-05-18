@@ -51,7 +51,7 @@ namespace TC1.executionEngine
                 bSkip = false;
                 sTestCaseID = ExcelUtils.getCellData(iTestcase, Constants.Col_TestCaseID, Constants.Sheet_TestCases);
                 sRunMode = ExcelUtils.getCellData(iTestcase, Constants.Col_RunMode, Constants.Sheet_TestCases);
-                if (sRunMode.Equals("Yes"))
+                if (sRunMode.ToLower().Equals("yes"))
                 {
                     Log.startTestCase(sTestCaseID);
                     iTestStep = ExcelUtils.getRowContains(sTestCaseID, Constants.Col_TestCaseID, Constants.Sheet_TestSteps);
