@@ -57,7 +57,7 @@ namespace TC1.executionEngine
                     iTestStep = ExcelUtils.getRowContains(sTestCaseID, Constants.Col_TestCaseID, Constants.Sheet_TestSteps);
                     iTestLastStep = ExcelUtils.getTestStepsCount(Constants.Sheet_TestSteps, sTestCaseID, iTestStep);
                     bResult = true;
-                    for (; iTestStep < iTestLastStep; iTestStep++)
+                    for (; iTestStep <= iTestLastStep; iTestStep++)
                     {
                         sActionKeyword = ExcelUtils.getCellData(iTestStep, Constants.Col_ActionKeyword, Constants.Sheet_TestSteps);
                         sPageObject = ExcelUtils.getCellData(iTestStep, Constants.Col_PageObject, Constants.Sheet_TestSteps);

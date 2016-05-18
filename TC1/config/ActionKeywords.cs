@@ -14,7 +14,8 @@ namespace TC1.config
     class ActionKeywords
     {
         public static IWebDriver driver;
-        public static int wait = 2000;
+        public static int wait = 5000;
+        private static WebDriverWait iwait;
         public static void openBrowser(String object_, String browser)
         {
 
@@ -23,6 +24,7 @@ namespace TC1.config
                 if (browser.Equals("Firefox"))
                 {
                     driver = new FirefoxDriver();
+                    Log.info("Firefox browser started");
 
                 }
                 else if (browser.Equals("IE"))
@@ -73,7 +75,9 @@ namespace TC1.config
             try
             {
                 Log.info("Clicking on " + object_);
-                Thread.Sleep(wait);
+                //Thread.Sleep(wait);
+                iwait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                iwait.Until(ExpectedConditions.ElementToBeClickable(driver.FindElement(RespositoryParser.getObject(object_))));
                 IWebElement element = driver.FindElement(RespositoryParser.getObject(object_));
                 element.Click();
             }
@@ -89,10 +93,11 @@ namespace TC1.config
             try
             {
                 Log.info("Entering the text in " + object_);
-                Thread.Sleep(wait);
+                iwait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                iwait.Until(ExpectedConditions.ElementToBeClickable(driver.FindElement(RespositoryParser.getObject(object_))));
                 IWebElement element = driver.FindElement(RespositoryParser.getObject(object_));
                 element.Clear();
-                Thread.Sleep(wait);
+                element = driver.FindElement(RespositoryParser.getObject(object_));
                 element.SendKeys(data);
             }
             catch (Exception ex)
@@ -108,7 +113,9 @@ namespace TC1.config
             try
             {
                 Log.info("Choose a value in dropdown " + object_);
-                Thread.Sleep(wait);
+                //Thread.Sleep(wait);
+                iwait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                iwait.Until(ExpectedConditions.ElementToBeClickable(driver.FindElement(RespositoryParser.getObject(object_))));
                 IWebElement element = driver.FindElement(RespositoryParser.getObject(object_));
                 SelectElement select = new SelectElement(element);
                 select.SelectByText(data);
