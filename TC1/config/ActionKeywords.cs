@@ -92,6 +92,7 @@ namespace TC1.config
                 Thread.Sleep(wait);
                 IWebElement element = driver.FindElement(RespositoryParser.getObject(object_));
                 element.Clear();
+                Thread.Sleep(wait);
                 element.SendKeys(data);
             }
             catch (Exception ex)

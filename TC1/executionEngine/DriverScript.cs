@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Reflection;
-using log4net.Config;
 using TC1.config;
 using TC1.utility;
 
@@ -10,22 +9,15 @@ namespace TC1.executionEngine
     class DriverScript
     {
         public static ActionKeywords actionKeywords;
-        //public static MethodInfo[] method;
         public static MethodInfo mt;
         public static Type type;
         public static String sActionKeyword;
         public static String sPageObject;
-        
         public static int iTestStep;
         public static int iTestLastStep;
-        //public static int iTestDataStep;
-        //public static int iTestDataLastStep;
         public static String sTestCaseID;
         public static String sRunMode;
         public static String sData;
-        //public static String productName;
-        //public static String quantity;
-       // public static String UoM;
         public static bool bResult;
         public static bool bSkip;
 
@@ -34,7 +26,7 @@ namespace TC1.executionEngine
             actionKeywords = new ActionKeywords();
             //method = typeof(ActionKeywords).GetMethods();
             type = actionKeywords.GetType();
-            XmlConfigurator.Configure();
+            log4net.Config.BasicConfigurator.Configure();
         }
 
 
