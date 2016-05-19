@@ -28,7 +28,7 @@ namespace TC1.utility
             }
         }
         
-        public static String getCellData(int RowNum, int ColNum, string SheetName)
+        public static string getCellData(int RowNum, int ColNum, string SheetName)
         {
             
             try
@@ -46,7 +46,7 @@ namespace TC1.utility
             
         }
 
-        public static int getRowCount(String SheetName)
+        public static int getRowCount(string SheetName)
         {
             int iNumber = 1;
             
@@ -54,7 +54,7 @@ namespace TC1.utility
             {
                 ExcelWSheet = ExcelWBook.Sheets[SheetName];     
                 Range lastRow = ExcelWSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
-                iNumber = lastRow.Row;
+                iNumber = lastRow.Row+1;
             }
             catch (Exception ex)
             {
@@ -63,14 +63,14 @@ namespace TC1.utility
             }
             return iNumber;
         }
-        public static int getRowContains(String sTestCaseName, int colNum, String SheetName)
+        public static int getRowContains(string sTestCaseName, int colNum, string SheetName)
         {
 
             int iRowNum = 1;	
             try 
             {
                
-        		int rowCount = ExcelUtils.getRowCount(SheetName)+1;
+        		int rowCount = ExcelUtils.getRowCount(SheetName);
         		for(; iRowNum<rowCount; iRowNum++)
                 {
         			if(ExcelUtils.getCellData(iRowNum,colNum,SheetName).Equals(sTestCaseName))
@@ -85,10 +85,9 @@ namespace TC1.utility
             }
         	return iRowNum;
         }
-        public static int getTestStepsCount(String SheetName, String sTestCaseID, int iTestCaseStart)
+        public static int getTestStepsCount(string SheetName, string sTestCaseID, int iTestCaseStart)
         {
-            
-            int number = 1;
+            int number = 0;  
             try
             {
                for (int i = iTestCaseStart; i <= ExcelUtils.getRowCount(SheetName); i++)
@@ -99,20 +98,20 @@ namespace TC1.utility
                        return number;
                    }
                }
-                ExcelWSheet = ExcelWBook.Sheets[SheetName];
-                Range lastRow = ExcelWSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
-                number = lastRow.Row;
+               ExcelWSheet = ExcelWBook.Sheets[SheetName];
+               Range lastRow = ExcelWSheet.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing);
+               number = lastRow.Row;
                return number;
             }
             catch (Exception ex)
             {
                 Log.error("Class Utils | Method setExcelFile | Exception desc : " + ex.Message);
                 DriverScript.bResult = false;
-                return number;
+                return 0;
             }
         }
 
-        public static void setCellData(String Result, int RowNum, int ColNum, String SheetName)
+        public static void setCellData(string Result, int RowNum, int ColNum, string SheetName)
         {
             try
             {

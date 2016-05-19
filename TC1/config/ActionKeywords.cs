@@ -51,7 +51,7 @@ namespace TC1.config
             }
             catch (Exception ex)
             {
-                Log.info("Not able to open the Browser --- " + ex.Message);
+                Log.info("Not to be able to open the Browser --- " + ex.Message);
                 DriverScript.bResult = false;
             }
         }
@@ -65,7 +65,7 @@ namespace TC1.config
             }
             catch (Exception ex)
             {
-                Log.info("Not able to navigate --- " + ex.Message);
+                Log.info("Not to be able to navigate --- " + ex.Message);
                 DriverScript.bResult = false;
             }
         }
@@ -102,7 +102,7 @@ namespace TC1.config
             }
             catch (Exception ex)
             {
-                Log.error("Not able to Enter " + object_ + "--- " + ex.Message);
+                Log.error("Not to be able to Enter " + object_ + "--- " + ex.Message);
                 DriverScript.bResult = false;
             }
         }
@@ -132,7 +132,7 @@ namespace TC1.config
         {
 		try{
                 Log.info("Wait for 5 seconds");
-                Thread.Sleep(5000);
+                Thread.Sleep(wait);
 
             }catch(Exception ex){
                 Log.error("Not able to Wait --- " + ex.Message);
@@ -152,6 +152,24 @@ namespace TC1.config
                 Log.error("Not able to Close the Browser --- " + ex.Message);
                 DriverScript.bResult = false;
             }
+        }
+        public static void verifyText(string object_, string data)
+        {
+            try
+            {
+                Log.info("Verify Text in "+ object_);
+                iwait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                iwait.Until(ExpectedConditions.ElementToBeClickable(driver.FindElement(RespositoryParser.getObject(object_))));
+                IWebElement element = driver.FindElement(RespositoryParser.getObject(object_));
+                if(!element.Text.Equals(data))
+                    DriverScript.bResult = false;
+            }
+            catch(Exception ex)
+            {
+                Log.error("Not to be able to verify text " + object_ + "---" + ex.Message);
+                DriverScript.bResult = false;
+            }
+
         }
     }
 }

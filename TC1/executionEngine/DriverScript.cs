@@ -11,13 +11,13 @@ namespace TC1.executionEngine
         public static ActionKeywords actionKeywords;
         public static MethodInfo mt;
         public static Type type;
-        public static String sActionKeyword;
-        public static String sPageObject;
+        public static string sActionKeyword;
+        public static string sPageObject;
         public static int iTestStep;
         public static int iTestLastStep;
-        public static String sTestCaseID;
-        public static String sRunMode;
-        public static String sData;
+        public static string sTestCaseID;
+        public static string sRunMode;
+        public static string sData;
         public static bool bResult;
         public static bool bSkip;
 
@@ -30,7 +30,7 @@ namespace TC1.executionEngine
         }
 
 
-        public static void Main(String[] args)
+        public static void Main(string[] args)
         {
             
             ExcelUtils.setExcelFile(Constants.Path_TestData);
@@ -57,7 +57,7 @@ namespace TC1.executionEngine
                     iTestStep = ExcelUtils.getRowContains(sTestCaseID, Constants.Col_TestCaseID, Constants.Sheet_TestSteps);
                     iTestLastStep = ExcelUtils.getTestStepsCount(Constants.Sheet_TestSteps, sTestCaseID, iTestStep);
                     bResult = true;
-                    for (; iTestStep <= iTestLastStep; iTestStep++)
+                    for (; iTestStep < iTestLastStep; iTestStep++)
                     {
                         sActionKeyword = ExcelUtils.getCellData(iTestStep, Constants.Col_ActionKeyword, Constants.Sheet_TestSteps);
                         sPageObject = ExcelUtils.getCellData(iTestStep, Constants.Col_PageObject, Constants.Sheet_TestSteps);
@@ -66,13 +66,9 @@ namespace TC1.executionEngine
 
                         if (bResult == false)
                         {
-
-
                             ExcelUtils.setCellData(Constants.KEYWORD_FAIL, iTestcase, Constants.Col_Result, Constants.Sheet_TestCases);
                             break;
                         }
-
-
                     }
                     if (bResult == true)
                     {
@@ -97,8 +93,7 @@ namespace TC1.executionEngine
             else
             {
                 ExcelUtils.setCellData(Constants.KEYWORD_FAIL, iTestStep, Constants.Col_TestStepResult, Constants.Sheet_TestSteps);
-                ActionKeywords.closeBrowser("", "");
-                
+                //ActionKeywords.closeBrowser("", "");  
             }
 
             //throw new NotImplementedException();
