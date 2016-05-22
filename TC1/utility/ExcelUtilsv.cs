@@ -127,5 +127,39 @@ namespace TC1.utility
                 
             }
         }
+        public static void reportBug(string filename, int totalBug)
+        {
+            try
+            {
+                setExcelFile(filename);
+                ExcelWSheet = ExcelWBook.Sheets["Sheet1"];
+                var Cell = ExcelWSheet.Cells[1, 2];
+                Cell.Value = totalBug.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Log.error("Class Utils | Method reportBug | Exception desc : " + ex.Message);
+            }
+        }
+        public static int countBugFail(int colResult,string SheetName)
+        {
+            int count = 0;
+            try
+            {
+                for (int i=2 ; i <= ExcelUtils.getRowCount(SheetName); i++)
+                {
+                    string result = ExcelUtils.getCellData(i, colResult, SheetName).ToLower().ToString();
+                    if (result.Equals("fail"))
+                        count = +count;
+                }
+                return count;
+            }
+            catch (Exception ex)
+            {
+                Log.error("Class Utils | Method countBugFail | Exception desc : " + ex.Message);
+                return 0;
+            }
+        }
     }
 }

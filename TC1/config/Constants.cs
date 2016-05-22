@@ -9,6 +9,7 @@ namespace TC1.config
 	    public static String Path_TestData = @"E:/WorkNew/SeleniumC#/TC1/TC1/dataEngine/DataEngine.xlsx";
 	    public static String Path_OR = @"E:/WorkNew/SeleniumC#/TC1/TC1/config/ObjectRepository.ini";
 	    public static String File_TestData = @"DataEngine.xlsx";
+        public static String Path_FileReport = @"E:/WorkNew/SeleniumC#/TC1/TC1/report/Report.xlsx";
         public static String Path_FileLog = @"E:/WorkNew/SeleniumC#/TC1/TC1/LogFile/log4Net.config";
 	    public static String KEYWORD_FAIL = "FAIL";
 	    public static String KEYWORD_PASS = "PASS";

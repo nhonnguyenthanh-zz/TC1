@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="LogFile\" />
+    <Folder Include="report\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="log.txt" />
