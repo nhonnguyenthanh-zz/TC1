@@ -119,7 +119,8 @@ namespace TC1.utility
                 ExcelWSheet = ExcelWBook.Sheets[SheetName];
                 var Cell = ExcelWSheet.Cells[RowNum, ColNum];
                 Cell.Value = Result;
-                
+                ExcelUtils.ExcelWBook.Save();
+
             }
             catch (Exception ex){
                 Log.error("Class Utils | Method setCellData | Exception desc : " + ex.Message);
@@ -135,6 +136,7 @@ namespace TC1.utility
                 ExcelWSheet = ExcelWBook.Sheets["Sheet1"];
                 var Cell = ExcelWSheet.Cells[1, 2];
                 Cell.Value = totalBug.ToString();
+                ExcelUtils.ExcelWBook.Save();
 
             }
             catch (Exception ex)

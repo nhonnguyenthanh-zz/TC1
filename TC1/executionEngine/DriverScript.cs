@@ -37,11 +37,10 @@ namespace TC1.executionEngine
             new RespositoryParser(Constants.Path_OR);
             DriverScript startEngine = new DriverScript();
             startEngine.execute_TestCase();
-            ExcelUtils.ExcelWBook.Save();
+            //ExcelUtils.ExcelWBook.Save();
             int totalBug = ExcelUtils.countBugFail(Constants.Col_Result, Constants.Sheet_TestCases);
             ExcelUtils.excel.Quit();
             ExcelUtils.reportBug(Constants.Path_FileReport, totalBug);
-            ExcelUtils.ExcelWBook.Save();
             ExcelUtils.excel.Quit();
 
         }
@@ -97,7 +96,7 @@ namespace TC1.executionEngine
             else
             {
                 ExcelUtils.setCellData(Constants.KEYWORD_FAIL, iTestStep, Constants.Col_TestStepResult, Constants.Sheet_TestSteps);
-                //ActionKeywords.closeBrowser("", "");  
+                ActionKeywords.closeBrowser("", "");  
             }
 
             //throw new NotImplementedException();

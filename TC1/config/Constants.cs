@@ -9,7 +9,7 @@ namespace TC1.config
         //System Variables
         public static String URL = "http://1.54.249.84/User/Login";
         //public static String Path_TestData = @"../dataEngine/DataEngine.xlsx" ;
-        public static String Path_TestData = @"E:/WorkNew/SeleniumC#/TC1/TC1/dataEngine/DataEngine.xlsx");
+        public static String Path_TestData = @"E:/WorkNew/SeleniumC#/TC1/TC1/dataEngine/DataEngine.xlsx";
         public static String Path_OR = @"E:/WorkNew/SeleniumC#/TC1/TC1/config/ObjectRepository.ini";
 	    public static String File_TestData = @"DataEngine.xlsx";
         public static String Path_FileReport = @"E:/WorkNew/SeleniumC#/TC1/TC1/report/Report.xlsx";
