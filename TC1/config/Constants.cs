@@ -8,12 +8,13 @@ namespace TC1.config
     {
         //System Variables
         public static String URL = "http://1.54.249.84/User/Login";
-        //public static String Path_TestData = @"../dataEngine/DataEngine.xlsx" ;
-        public static String Path_TestData = @"E:/WorkNew/SeleniumC#/TC1/TC1/dataEngine/DataEngine.xlsx";
-        public static String Path_OR = @"E:/WorkNew/SeleniumC#/TC1/TC1/config/ObjectRepository.ini";
+        public static string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
+        public static String Path_TestData = path + @"/dataEngine/DataEngine.xlsx";
+        //public static String Path_TestData = @"E:/WorkNew/SeleniumC#/TC1/TC1/dataEngine/DataEngine.xlsx";
+        public static String Path_OR = path + @"/config/ObjectRepository.ini";
 	    public static String File_TestData = @"DataEngine.xlsx";
-        public static String Path_FileReport = @"E:/WorkNew/SeleniumC#/TC1/TC1/report/Report.xlsx";
-        public static String Path_FileLog = @"E:/WorkNew/SeleniumC#/TC1/TC1/LogFile/log4Net.config";
+        public static String Path_FileReport = path + @"/report/Report.xlsx";
+        public static String Path_FileLog = path + @"/LogFile/log4Net.config";
 	    public static String KEYWORD_FAIL = "FAIL";
 	    public static String KEYWORD_PASS = "PASS";
 
